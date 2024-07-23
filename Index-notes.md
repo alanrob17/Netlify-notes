@@ -150,3 +150,60 @@ At present we have initalised our repository but not committed any files to the 
 In my case I see.
 
 ![Git status](assets/images/git-status.jpg "Git status")
+
+It is telling us that we have untracked files. This basically means these are all new files to Git.
+
+Now we have a couple of steps to commit our repository. First we have to add our files into the staging area.
+
+```bash
+    git add .
+```
+
+This saves **all** our files to the staging area. It keeps the files here until you commit them. I am deliberately simplifying the process here. Run this command again.
+
+The period (``.``) specifies all files. 
+
+```bash
+    Git status
+```
+
+![Git staged](assets/images/git-staged.jpg "Git staged")
+
+It shows that the files have been staged which is like a holding area. Notice that Git is giving you some information about where you are in the process.
+
+> (use "git rm --cached <file>..." to unstage)
+
+It is telling you that the files are staged and that, if you wanted to you could unstage them with a command. We won't do that.
+
+Now that they are staged they can be committed. Run this command.
+
+```bash
+    git commit -m "Initial commit."
+```
+
+``-m`` means add a message about what you are doing. I usually try to keep my messages in present tense. E.g *Fix bug*, not *Fixed bug*.
+
+This will commit all files. In this process we have kept the first version of our software. Run ``Git status`` again to see the state of our repository.
+
+![Nothing to commit](assets/images/working-tree-clean.jpg "Nothing to commit")
+
+This message is telling use that all of our files are in the local Git repository and are all accounted for.
+
+As soon as we add more files or updated our Html content we will have to repeat this process again.
+
+## Git cycle
+
+This looks like a lot of work but the steps are the same for all (nearly all!) of your Git processes.
+
+* First, we create some new files of edit text in our Html.
+* Second, we do a ``Git status``to see the status of our repository.
+* Third, we do a ``Git add .`` to push our files to the staging area.
+* Last we do a ``Git commit`` to commit our files to the repository. We give the commit a message to explain why we committed the files.
+
+We continuously use ``Git status`` to check the status of our files.
+
+I usually try to commit all of my source code when I finish working or when I finish a particular task in the project.
+
+We just keep on continually doing this cycle to keep a record of what we are doing. This is the basics of Git but occasionally we may want to roll back to a previous version of our software. Git allows us to do this and more. For our tasks we won't have to do this.
+
+Since my last commit I have added more content to my files and added more images so I will do another cycle of ``add``and ``commit``.
