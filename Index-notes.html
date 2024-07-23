@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Index-notes.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="using-git--github-to-set-up-a-website">Using Git &amp; Github to set up a website</h1>
+<p><strong>Git</strong> is your local source control system.</p>
+<p><strong>Github</strong> is an online software development platform. It's used for storing, tracking, and collaborating on software projects. It is where you store your repositories. You can make your applications private or public so that other software developers can collaborate with you.</p>
+<h2 id="download-git-for-your-computer">Download Git for your computer</h2>
+<p>Git can be downloaded from <a href="https://git-scm.com/">git-scm.com</a>.</p>
+<p>On the right-hand side of the page there will be a link to download the Git binaries dependent on your operating system.</p>
+<p>This software will work on both Windows or Mac systems. It will install a graphic interface and a Bash Console version of Git.</p>
+<p>During this process it should ask you for a user name and an email. If it doesn't we will set these up later.</p>
+<p>I have only ever used the Bash Console version of Git so I will describe how to set and use Git through a Console window.</p>
+<p>Run the binary file to install Git on your computer. Once you have installed the software do a search for Git. I an using a Windows machine so will show you how I find Git.</p>
+<p><img src="assets/images/git-search.jpg" alt="Using Windows search to find Git" title="Using Windows search to find Git"></p>
+<p>I will select the <code>Git Bash</code> option.</p>
+<p><img src="assets/images/git-console-window.jpg" alt="Git Bash console window" title="Git Bash console window"></p>
+<p>If you have never used a Console application before this may seem fairly confronting but I will guide you through using them.</p>
+<h2 id="setting-up-git-on-your-local-machine">Setting up Git on your local machine</h2>
+<p>Type in this command to check the version of Git you are using.</p>
+<pre class="hljs"><code><div>    git --version
+</div></code></pre>
+<p>This should return something similar to this.</p>
+<blockquote>
+<p>git version 2.45.2.windows.1</p>
+</blockquote>
+<p>There are some configuration settings that you need to create so that you can use Git Bash successfully.</p>
+<h3 id="set-the-default-branch-to-main">Set the default branch to main</h3>
+<pre class="hljs"><code><div>    git config --global init.defaultBranch main
+</div></code></pre>
+<p>Now every time you create a new Git repository it will start on the <code>main</code> branch. That is all you need to know about branches for the moment.</p>
+<p>Now run this command to view your system settings.</p>
+<pre class="hljs"><code><div>     git config --list
+</div></code></pre>
+<p>This will give you a list of all your settings. We are only interested in three.</p>
+<blockquote>
+<p>user.name=Alan Robson<br>
+user.email=<a href="mailto:alanr@live.com.au">alanr@live.com.au</a><br>
+init.defaultbranch=main</p>
+</blockquote>
+<p>We know the last one is correct because we just set it.</p>
+<p>If either your <code>user.name</code> or <code>user.email</code> aren't correct then we can change them with.</p>
+<pre class="hljs"><code><div>    git config --global user.name <span class="hljs-string">"Alan Robson"</span>
+</div></code></pre>
+<p>Or.</p>
+<pre class="hljs"><code><div>    git config --global user.email <span class="hljs-string">"alanr@live.com.au"</span>
+</div></code></pre>
+<p>Change these to suit your details.</p>
+<p>Once we have completed this we are finished setting up Git for local use.</p>
+<h2 id="setting-up-a-git-repository">Setting up a Git repository</h2>
+<p>I am going to add these notes that I am creating into a template for a website. I will create a folder on my computer to hold my files.</p>
+<p>In my case the folder will be (for a Windows PC).</p>
+<blockquote>
+<p>c:\Git\Netlify-Notes</p>
+</blockquote>
+<p>You probably have a folder on your machine with your website files. You can use this.</p>
+<p>To navigate to this folder in Git Bash.</p>
+<pre class="hljs"><code><div>    <span class="hljs-built_in">cd</span> /c/Git/Netlify-Notes
+</div></code></pre>
+<p>Where:</p>
+<ul>
+<li><code>/c/</code> is the <strong>C:</strong> drive on my computer.</li>
+<li><code>Git/Netlify-Notes</code> is the folder where I store my website.</li>
+</ul>
+<p><strong>Note:</strong> Git Bash is case sensitive.</p>
+<h2 id="creating-a-git-repository">Creating a Git repository</h2>
+<p>Make sure you are in the correct folder. Run this command.</p>
+<pre class="hljs"><code><div>    ls
+</div></code></pre>
+<p>This will give you a listing of your files and folders. In my case.</p>
+<p><img src="assets/images/folder-structure.jpg" alt="Website folder structure" title="Website folder structure"></p>
+<p>This has my html files and the notes I am creating. It also contains an <code>assets</code> folder that contains my CSS, JavaScript and images.</p>
+<p>We are now ready to initialise our folder as a Git repository.</p>
+<pre class="hljs"><code><div>    git init
+</div></code></pre>
+<p>You will get a similar message.</p>
+<blockquote>
+<p>Initialized empty Git repository in C:/Git/Netlify-Notes/.git/</p>
+</blockquote>
+<p>We only have to run this command once and now we have a repository. If you run this command you will see that Git has added some files into your folder.</p>
+<pre class="hljs"><code><div>    ls -la
+</div></code></pre>
+<p>Returns.</p>
+<p><img src="assets/images/git-folder.jpg" alt="Git folder" title="Git folder"></p>
+<p>The new folder is named <code>.git</code> and this keeps a record of all the commits you do in your repository.</p>
+
+</body>
+</html>
