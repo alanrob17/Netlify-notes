@@ -367,7 +367,10 @@ code {
   </script>
 <h1 id="using-git--github-to-set-up-a-website">Using Git &amp; Github to set up a website</h1>
 <p><strong>Git</strong> is your local source control system.</p>
-<p><strong>Github</strong> is an online software development platform. It's used for storing, tracking, and collaborating on software projects. It is where you store your repositories. You can make your applications private or public so that other software developers can collaborate with you.</p>
+<p><strong>Github</strong> is an online software development platform. It's used for storing, tracking, and collaborating on software projects. It is where you store your repositories. You can make your applications (repositories) private or public so that other software developers can collaborate with you.</p>
+<p>The first task in our process is to put all of our website files into our local version of Git.</p>
+<p>The next task is to push these files to Github.</p>
+<p>The next task is automatically deploying these files (if they are stable) from Github to Netlify.com. This will be an automated process described later.</p>
 <h2 id="download-git-for-your-computer">Download Git for your computer</h2>
 <p>Git can be downloaded from <a href="https://git-scm.com/">git-scm.com</a>.</p>
 <p>On the right-hand side of the page there will be a link to download the Git binaries dependent on your operating system.</p>
@@ -441,11 +444,55 @@ init.defaultbranch=main</p>
 <p>Initialized empty Git repository in C:/Git/Netlify-Notes/.git/</p>
 </blockquote>
 <p>We only have to run this command once and now we have a repository. If you run this command you will see that Git has added some files into your folder.</p>
-<pre class="hljs"><code><div>    ls -la
+<pre class="hljs"><code><div>    ls -a
 </div></code></pre>
 <p>Returns.</p>
 <p><img src="assets/images/git-folder.jpg" alt="Git folder" title="Git folder"></p>
-<p>The new folder is named <code>.git</code> and this keeps a record of all the commits you do in your repository.</p>
+<p>Notice that the folder line has <code>(main)</code> at the end if it. This means you are going to commit your files to the main branch and this is a really good way to check that you are in a Git repository.</p>
+<p>There is a new folder named <code>.git</code> and this keeps a record of all the commits you do in your repository.</p>
+<h2 id="adding-files-to-your-repository">Adding files to your repository</h2>
+<p>At present we have initalised our repository but not committed any files to the repository. We can check our status with.</p>
+<pre class="hljs"><code><div>    git status
+</div></code></pre>
+<p>In my case I see.</p>
+<p><img src="assets/images/git-status.jpg" alt="Git status" title="Git status"></p>
+<p>It is telling us that we have untracked files. This basically means these are all new files to Git.</p>
+<p>Now we have a couple of steps to commit our repository. First we have to add our files into the staging area.</p>
+<pre class="hljs"><code><div>    git add .
+</div></code></pre>
+<p>This saves <strong>all</strong> our files to the staging area. It keeps the files here until you commit them. I am deliberately simplifying the process here. Run this command again.</p>
+<p>The period (<code>.</code>) specifies all files.</p>
+<pre class="hljs"><code><div>    Git status
+</div></code></pre>
+<p><img src="assets/images/git-staged.jpg" alt="Git staged" title="Git staged"></p>
+<p>It shows that the files have been staged which is like a holding area. Notice that Git is giving you some information about where you are in the process.</p>
+<blockquote>
+<p>(use &quot;git rm --cached <file>...&quot; to unstage)</p>
+</blockquote>
+<p>It is telling you that the files are staged and that, if you wanted to you could unstage them with a command. We won't do that.</p>
+<p>Now that they are staged they can be committed. Run this command.</p>
+<pre class="hljs"><code><div>    git commit -m <span class="hljs-string">"Initial commit."</span>
+</div></code></pre>
+<p><code>-m</code> means add a message about what you are doing. I usually try to keep my messages in present tense. E.g <em>Fix bug</em>, not <em>Fixed bug</em>.</p>
+<p>This will commit all files. In this process we have kept the first version of our software. Run <code>Git status</code> again to see the state of our repository.</p>
+<p><img src="assets/images/working-tree-clean.jpg" alt="Nothing to commit" title="Nothing to commit"></p>
+<p>This message is telling use that all of our files are in the local Git repository and are all accounted for.</p>
+<p>As soon as we add more files or updated our Html content we will have to repeat this process again.</p>
+<h2 id="git-cycle">Git cycle</h2>
+<p>This looks like a lot of work but the steps are the same for all (nearly all!) of your Git processes.</p>
+<ul>
+<li>First, we create some new files of edit text in our Html.</li>
+<li>Second, we do a <code>Git status</code>to see the status of our repository.</li>
+<li>Third, we do a <code>Git add .</code> to push our files to the staging area.</li>
+<li>Last we do a <code>Git commit</code> to commit our files to the repository. We give the commit a message to explain why we committed the files.</li>
+</ul>
+<p>We continuously use <code>Git status</code> to check the status of our files.</p>
+<p>I usually try to commit all of my source code when I finish working or when I finish a particular task in the project.</p>
+<p>We just keep on continually doing this cycle to keep a record of what we are doing. This is the basics of Git but occasionally we may want to roll back to a previous version of our software. Git allows us to do this and more. For our tasks we won't have to do this.</p>
+<p>Since my last commit I have added more content to my files and added more images so I will do another cycle of <code>add</code>and <code>commit</code>.</p>
+<h2 id="git-log">Git log</h2>
+<p><code>Git log</code> is used to give you a list of all the commits that you have carried out.</p>
+<p><img src="assets/images/git-log.jpg" alt="Git log" title="Git log"></p>
 
 </body>
 </html>

@@ -2,7 +2,13 @@
 
 **Git** is your local source control system.
 
-**Github** is an online software development platform. It's used for storing, tracking, and collaborating on software projects. It is where you store your repositories. You can make your applications private or public so that other software developers can collaborate with you.
+**Github** is an online software development platform. It's used for storing, tracking, and collaborating on software projects. It is where you store your repositories. You can make your applications (repositories) private or public so that other software developers can collaborate with you.
+
+The first task in our process is to put all of our website files into our local version of Git.
+
+The next task is to push these files to Github. 
+
+The next task is automatically deploying these files (if they are stable) from Github to Netlify.com. This will be an automated process described later.
 
 ## Download Git for your computer
 
@@ -207,3 +213,9 @@ I usually try to commit all of my source code when I finish working or when I fi
 We just keep on continually doing this cycle to keep a record of what we are doing. This is the basics of Git but occasionally we may want to roll back to a previous version of our software. Git allows us to do this and more. For our tasks we won't have to do this.
 
 Since my last commit I have added more content to my files and added more images so I will do another cycle of ``add``and ``commit``.
+
+## Git log
+
+``Git log`` is used to give you a list of all the commits that you have carried out.
+
+![Git log](assets/images/git-log.jpg "Git log")
