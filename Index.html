@@ -74,7 +74,194 @@ blockquote {
     <div class="starter-template">
 
 
-<h1>Git/Github Notes</h1>
+<h1 id="using-git--github-to-set-up-a-website">Using Git &amp; Github to set up a website</h1>
+<p><strong>Git</strong> is your local source control system.</p>
+<p><strong>Github</strong> is an online software development platform. It's used for storing, tracking, and collaborating on software projects. It is where you store your repositories. You can make your applications (repositories) private or public so that other software developers can collaborate with you.</p>
+<p>The first task in our process is to put all of our website files into our local version of Git.</p>
+<p>The next task is to push these files to Github.</p>
+<p>The next task is automatically deploying these files (if they are stable) from Github to Netlify.com. This will be an automated process described later.</p>
+<h2 id="download-git-for-your-computer">Download Git for your computer</h2>
+<p>Git can be downloaded from <a href="https://git-scm.com/">git-scm.com</a>.</p>
+<p>On the right-hand side of the page there will be a link to download the Git binaries dependent on your operating system.</p>
+<p>This software will work on both Windows or Mac systems. It will install a graphic interface program and a Bash Console version of Git.</p>
+<p>During this process it should ask you for a user name and an email. If it doesn't we will set these up later.</p>
+<p>I have only ever used the Bash Console version of Git so I will describe how to set and use Git through a Console window.</p>
+<p>Run the binary file to install Git on your computer. Once you have installed the software do a search for Git. I am using a Windows machine so will show you how I find Git.</p>
+<p><img src="assets/images/git-search.jpg" alt="Using Windows search to find Git" title="Using Windows search to find Git"></p>
+<p>I will select the <code>Git Bash</code> option.</p>
+<p><img src="assets/images/git-console-window.jpg" alt="Git Bash console window" title="Git Bash console window"></p>
+<p>If you have never used a Console application before this may seem fairly confronting but I will guide you through using them.</p>
+<h2 id="setting-up-git-on-your-local-machine">Setting up Git on your local machine</h2>
+<p>Type in this command to check the version of Git you are using.</p>
+<pre class="prettyprint"><code><div>    git --version
+</div></code></pre>
+<p>This should return something similar to this. It also tells you that Git is working properly.</p>
+<blockquote>
+<p>git version 2.45.2.windows.1</p>
+</blockquote>
+<p>There are some configuration settings that you need to create so that you can use Git Bash successfully.</p>
+<h3 id="set-the-default-branch-to-main">Set the default branch to main</h3>
+<pre class="prettyprint"><code><div>    git config --global init.defaultBranch main
+</div></code></pre>
+<p>Now every time you create a new Git repository it will start on the <code>main</code> branch. That is all you need to know about branches for the moment.</p>
+<p>Now run this command to view your system settings.</p>
+<pre class="prettyprint"><code><div>     git config --list
+</div></code></pre>
+<p>This will give you a list of all your settings. We are only interested in three.</p>
+<blockquote>
+<p>user.name=Alan Robson<br>
+user.email=<a href="mailto:alanr@live.com.au">alanr@live.com.au</a><br>
+init.defaultbranch=main</p>
+</blockquote>
+<p>We know the last one is correct because we just set it.</p>
+<p>If either your <code>user.name</code> or <code>user.email</code> aren't correct then we can change them with.</p>
+<pre class="prettyprint"><code><div>    git config --global user.name <span class="hljs-string">"Alan Robson"</span>
+</div></code></pre>
+<p>Or.</p>
+<pre class="prettyprint"><code><div>    git config --global user.email <span class="hljs-string">"alanr@live.com.au"</span>
+</div></code></pre>
+<p>Change these to suit your details.</p>
+<p>Once we have completed this we are finished setting up Git for local use.</p>
+<h2 id="setting-up-a-git-repository">Setting up a Git repository</h2>
+<p>I am going to add these notes that I am creating into a template for a website. I will create a folder on my computer to hold my files.</p>
+<p>In my case the folder will be (for a Windows PC).</p>
+<blockquote>
+<p>c:\Git\Netlify-Notes</p>
+</blockquote>
+<p>You probably have a folder on your machine with your website files. You can use this.</p>
+<p>To navigate to this folder in Git Bash.</p>
+<pre class="prettyprint"><code><div>    <span class="hljs-built_in">cd</span> /c/Git/Netlify-Notes
+</div></code></pre>
+<p>Where:</p>
+<ul>
+<li><code>/c/</code> is the <strong>C:</strong> drive on my computer.</li>
+<li><code>Git/Netlify-Notes</code> is the folder where I store my website.</li>
+</ul>
+<p><strong>Note:</strong> Git Bash is case sensitive.</p>
+<h2 id="creating-a-git-repository">Creating a Git repository</h2>
+<p>Make sure you are in the correct folder. Run this command.</p>
+<pre class="prettyprint"><code><div>    ls
+</div></code></pre>
+<p>This will give you a listing of your files and folders. In my case.</p>
+<p><img src="assets/images/folder-structure.jpg" alt="Website folder structure" title="Website folder structure"></p>
+<p>This has my html files and the notes I am creating. It also contains an <code>assets</code> folder that contains my CSS, JavaScript and images.</p>
+<p>We are now ready to initialise our folder as a Git repository.</p>
+<pre class="prettyprint"><code><div>    git init
+</div></code></pre>
+<p>You will get a similar message.</p>
+<blockquote>
+<p>Initialized empty Git repository in C:/Git/Netlify-Notes/.git/</p>
+</blockquote>
+<p>We only have to run this command once and now we have a repository. If you run this command you will see that Git has added some files into your folder.</p>
+<pre class="prettyprint"><code><div>    ls -a
+</div></code></pre>
+<p>Returns.</p>
+<p><img src="assets/images/git-folder.jpg" alt="Git folder" title="Git folder"></p>
+<p>Notice that the folder line has <code>(main)</code> at the end if it. This means you are going to commit your files to the main branch and this is a really good way to check that you are in a Git repository.</p>
+<p>There is a new folder named <code>.git</code> and this keeps a record of all the commits you do in your repository.</p>
+<h2 id="adding-files-to-your-repository">Adding files to your repository</h2>
+<p>At present we have initalised our repository but not committed any files to the repository. We can check our status with.</p>
+<pre class="prettyprint"><code><div>    git status
+</div></code></pre>
+<p>In my case I see.</p>
+<p><img src="assets/images/git-status.jpg" alt="Git status" title="Git status"></p>
+<p>It is telling us that we have untracked files. This basically means these are all new files to Git.</p>
+<p>Now we have a couple of steps to commit our repository. First we have to add our files into the staging area.</p>
+<pre class="prettyprint"><code><div>    git add .
+</div></code></pre>
+<p>This saves <strong>all</strong> our files to the staging area. It keeps the files here until you commit them. I am deliberately simplifying the process here. Run this command again.</p>
+<p>The period (<code>.</code>) specifies all files.</p>
+<pre class="prettyprint"><code><div>    Git status
+</div></code></pre>
+<p><img src="assets/images/git-staged.jpg" alt="Git staged" title="Git staged"></p>
+<p>It shows that the files have been staged which is like a holding area. Notice that Git is giving you some information about where you are in the process.</p>
+<blockquote>
+<p>(use &quot;git rm --cached <file>...&quot; to unstage)</p>
+</blockquote>
+<p>It is telling you that the files are staged and that, if you wanted to you could unstage them with a command. We won't do that.</p>
+<p>Now that they are staged they can be committed. Run this command.</p>
+<pre class="prettyprint"><code><div>    git commit -m <span class="hljs-string">"Initial commit."</span>
+</div></code></pre>
+<p><code>-m</code> means add a message about what you are doing. I usually try to keep my messages in present tense. E.g <em>Fix bug</em>, not <em>Fixed bug</em>.</p>
+<p>This will commit all files. In this process we have kept the first version of our software. Run <code>Git status</code> again to see the state of our repository.</p>
+<p><img src="assets/images/working-tree-clean.jpg" alt="Nothing to commit" title="Nothing to commit"></p>
+<p>This message is telling use that all of our files are in the local Git repository and are all accounted for.</p>
+<p>As soon as we add more files or updated our Html content we will have to repeat this process again.</p>
+<h2 id="git-cycle">Git cycle</h2>
+<p>This looks like a lot of work but the steps are the same for all (nearly all!) of your Git processes.</p>
+<ul>
+<li>First, we create some new files or edit text in our Html.</li>
+<li>Second, we do a <code>Git status</code>to see the status of our repository.</li>
+<li>Third, we do a <code>Git add .</code> to push our files to the staging area.</li>
+<li>Last we do a <code>Git commit</code> to commit our files to the repository. We give the commit a message to explain why we committed the files.</li>
+</ul>
+<p>We continuously use <code>Git status</code> to check the status of our files.</p>
+<p>I usually try to commit all of my source code when I finish working or when I finish a particular task in the project.</p>
+<p>We just keep on continually doing this cycle to keep a record of what we are doing. This is the basics of Git but occasionally we may want to roll back to a previous version of our software. Git allows us to do this and more. For our tasks we won't have to do this.</p>
+<p>Since my last commit I have added more content to my files and added more images so I will do another cycle of <code>add</code>and <code>commit</code>.</p>
+<h2 id="git-log">Git log</h2>
+<p><code>Git log</code> is used to give you a list of all the commits that you have carried out.</p>
+<p><img src="assets/images/git-log.jpg" alt="Git log" title="Git log"></p>
+<h2 id="pushing-your-repository-to-github">Pushing your repository to Github</h2>
+<p>So far our files are residing on our personal computer. What happens if we accidentally delete them? This is where Github comes in. We can copy our files to Github and download any of our repositories to any computer or place in the world. This is a great form of backup.</p>
+<p>We are using Github for a slightly different reason. We will push our files up to Github so that we can also push (deploy) them to Netlify.com. Once we set this up it will be an automated process.</p>
+<h3 id="create-a-github-account">Create a Github account</h3>
+<p><a href="https://github.com">Github link</a></p>
+<p>You will be asked to add an email address and password. Use the same email address that you used to create Git on your computer.</p>
+<p>Once you have created an account you will be sent to a landing page. This is mine.</p>
+<p><a href="https://github.com/alanrob17">https://github.com/alanrob17</a></p>
+<p><img src="assets/images/github-page.jpg" alt="Github page" title="Github page"></p>
+<h3 id="create-a-new-github-repository">Create a new Github repository</h3>
+<p>I will create a new Github repository for my Netlifty-Notes local repository.</p>
+<p>Click on the <code>Repositories</code> link.</p>
+<p><img src="assets/images/repositories-link.jpg" alt="Repositories link" title="Repositories link"></p>
+<p>This will take you to the Repositories page. Click on the <code>New</code> button to create a new repository.</p>
+<p><img src="assets/images/new-button.jpg" alt="Create a new repository" title="Create a new repository"></p>
+<p>Fill in the details for your repository. The name has to be unique. I have called this repository <code>Netlify-notes</code>.</p>
+<p>Always give a description of the project.</p>
+<p>I am going to make this project <code>public</code> so that anybody can see it. I suggest you make your website private.</p>
+<p><img src="assets/images/new-repository-1.jpg" alt="Create a new repository" title="Create a new repository"></p>
+<p>Don't do anything else on this screen except scroll down and click on the <code>Create repository</code> button.</p>
+<p><img src="assets/images/new-repository-2.jpg" alt="Create a new repository" title="Create a new repository"></p>
+<p>You will be sent to this screen. Scroll down to the <code>...push an existing repository from the command line.</code> section.</p>
+<p><img src="assets/images/push-existing-repository.jpg" alt="Existing repository" title="Existing repository"></p>
+<p>These are the commands we will use to join our local repository to our Github account.</p>
+<p>First we set the remote origin by running this command.</p>
+<pre class="prettyprint"><code><div>    git remote add origin https://github.com/alanrob17/Netlify-notes.git
+</div></code></pre>
+<p>This doesn't return any messages.</p>
+<p><img src="assets/images/remote-origin.jpg" alt="Setting the remote origin" title="Setting the remote origin"></p>
+<p>Next we set the <code>Main</code> branch.</p>
+<pre class="prettyprint"><code><div>    git branch -M main
+</div></code></pre>
+<p>Finally we push the local repository to Github.</p>
+<pre class="prettyprint"><code><div>    git push -u origin main
+</div></code></pre>
+<p>You will get a message similar to this.</p>
+<p><img src="assets/images/push-message.jpg" alt="Push your files to Github" title="Push your files to Github"></p>
+<p>Now your repository is stored on Github.</p>
+<p>If you go back to your main page (mine is github.com/alanrob17) you will see your new repository at the top.</p>
+<p><img src="assets/images/my-new-repository.jpg" alt="New repository" title="New repository"></p>
+<p>Click on the name and it will take you to your Github repository.</p>
+<p><img src="assets/images/repository.jpg" alt="Your repository" title="Your repository"></p>
+<p>This is where you can view all of your website code online. Click on any file to see its contents.</p>
+<p>You can also see how many commits you have made to this project and other statistics.</p>
+<p>You are also able to download a copy of your files from Github by clicking on the <code>Code</code> button.</p>
+<h2 id="add-another-step-to-your-git-cycle">Add another step to your Git cycle</h2>
+<p>I previously mentioned these steps.</p>
+<ul>
+<li>First, we create some new files or edit text in our Html.</li>
+<li>Second, we do a <code>Git status</code>to see the status of our repository.</li>
+<li>Third, we do a <code>Git add .</code> to push our files to the staging area.</li>
+<li>Last we do a <code>Git commit</code> to commit our files to the repository. We give the commit a message to explain why we committed the files.</li>
+</ul>
+<p>Once we finish these steps we now have another step to push our changes to Github</p>
+<pre class="prettyprint"><code><div>    git push
+</div></code></pre>
+<p>This <code>pushes</code> our changed files to Github.</p>
+<h2 id="whats-next">What's next</h2>
+<p>We will now join our Github repository to Netlify.com. Click on the <code>Netlify</code> link at the top of the page.</p>
+
 
 
 </div><!-- starter-template -->
