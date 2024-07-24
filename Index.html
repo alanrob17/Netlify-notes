@@ -169,8 +169,9 @@ init.defaultbranch=main</p>
 <p>Now we have a couple of steps to commit our repository. First we have to add our files into the staging area.</p>
 <pre class="prettyprint"><code><div>    git add .
 </div></code></pre>
-<p>This saves <strong>all</strong> our files to the staging area. It keeps the files here until you commit them. I am deliberately simplifying the process here. Run this command again.</p>
+<p>This saves <strong>all</strong> our files to the staging area. It keeps the files here until you commit them. I am deliberately simplifying the process here.</p>
 <p>The period (<code>.</code>) specifies all files.</p>
+<p>Run this command again.</p>
 <pre class="prettyprint"><code><div>    Git status
 </div></code></pre>
 <p><img src="assets/images/git-staged.jpg" alt="Git staged" title="Git staged"></p>
@@ -186,19 +187,19 @@ init.defaultbranch=main</p>
 <p>This will commit all files. In this process we have kept the first version of our software. Run <code>Git status</code> again to see the state of our repository.</p>
 <p><img src="assets/images/working-tree-clean.jpg" alt="Nothing to commit" title="Nothing to commit"></p>
 <p>This message is telling use that all of our files are in the local Git repository and are all accounted for.</p>
-<p>As soon as we add more files or updated our Html content we will have to repeat this process again.</p>
+<p>As soon as we add more files or update our Html content we will have to repeat this process again.</p>
 <h2 id="git-cycle">Git cycle</h2>
 <p>This looks like a lot of work but the steps are the same for all (nearly all!) of your Git processes.</p>
 <ul>
 <li>First, we create some new files or edit text in our Html.</li>
-<li>Second, we do a <code>Git status</code>to see the status of our repository.</li>
+<li>Second, we do a <code>Git status</code> to see the status of our repository.</li>
 <li>Third, we do a <code>Git add .</code> to push our files to the staging area.</li>
 <li>Last we do a <code>Git commit</code> to commit our files to the repository. We give the commit a message to explain why we committed the files.</li>
 </ul>
 <p>We continuously use <code>Git status</code> to check the status of our files.</p>
 <p>I usually try to commit all of my source code when I finish working or when I finish a particular task in the project.</p>
 <p>We just keep on continually doing this cycle to keep a record of what we are doing. This is the basics of Git but occasionally we may want to roll back to a previous version of our software. Git allows us to do this and more. For our tasks we won't have to do this.</p>
-<p>Since my last commit I have added more content to my files and added more images so I will do another cycle of <code>add</code>and <code>commit</code>.</p>
+<p>Since my last commit I have added more content to my files and added more images so I will do another cycle of <code>add</code> and <code>commit</code>.</p>
 <h2 id="git-log">Git log</h2>
 <p><code>Git log</code> is used to give you a list of all the commits that you have carried out.</p>
 <p><img src="assets/images/git-log.jpg" alt="Git log" title="Git log"></p>
@@ -251,7 +252,7 @@ init.defaultbranch=main</p>
 <p>I previously mentioned these steps.</p>
 <ul>
 <li>First, we create some new files or edit text in our Html.</li>
-<li>Second, we do a <code>Git status</code>to see the status of our repository.</li>
+<li>Second, we do a <code>Git status</code> to see the status of our repository.</li>
 <li>Third, we do a <code>Git add .</code> to push our files to the staging area.</li>
 <li>Last we do a <code>Git commit</code> to commit our files to the repository. We give the commit a message to explain why we committed the files.</li>
 </ul>

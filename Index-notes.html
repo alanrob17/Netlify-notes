@@ -384,7 +384,7 @@ code {
 <p>If you have never used a Console application before this may seem fairly confronting but I will guide you through using them.</p>
 <h2 id="setting-up-git-on-your-local-machine">Setting up Git on your local machine</h2>
 <p>Type in this command to check the version of Git you are using.</p>
-<pre class="hljs"><code><div>    git --version
+<pre class="prettyprint"><code><div>    git --version
 </div></code></pre>
 <p>This should return something similar to this. It also tells you that Git is working properly.</p>
 <blockquote>
@@ -392,11 +392,11 @@ code {
 </blockquote>
 <p>There are some configuration settings that you need to create so that you can use Git Bash successfully.</p>
 <h3 id="set-the-default-branch-to-main">Set the default branch to main</h3>
-<pre class="hljs"><code><div>    git config --global init.defaultBranch main
+<pre class="prettyprint"><code><div>    git config --global init.defaultBranch main
 </div></code></pre>
 <p>Now every time you create a new Git repository it will start on the <code>main</code> branch. That is all you need to know about branches for the moment.</p>
 <p>Now run this command to view your system settings.</p>
-<pre class="hljs"><code><div>     git config --list
+<pre class="prettyprint"><code><div>     git config --list
 </div></code></pre>
 <p>This will give you a list of all your settings. We are only interested in three.</p>
 <blockquote>
@@ -406,10 +406,10 @@ init.defaultbranch=main</p>
 </blockquote>
 <p>We know the last one is correct because we just set it.</p>
 <p>If either your <code>user.name</code> or <code>user.email</code> aren't correct then we can change them with.</p>
-<pre class="hljs"><code><div>    git config --global user.name <span class="hljs-string">"Alan Robson"</span>
+<pre class="prettyprint"><code><div>    git config --global user.name <span class="hljs-string">"Alan Robson"</span>
 </div></code></pre>
 <p>Or.</p>
-<pre class="hljs"><code><div>    git config --global user.email <span class="hljs-string">"alanr@live.com.au"</span>
+<pre class="prettyprint"><code><div>    git config --global user.email <span class="hljs-string">"alanr@live.com.au"</span>
 </div></code></pre>
 <p>Change these to suit your details.</p>
 <p>Once we have completed this we are finished setting up Git for local use.</p>
@@ -421,7 +421,7 @@ init.defaultbranch=main</p>
 </blockquote>
 <p>You probably have a folder on your machine with your website files. You can use this.</p>
 <p>To navigate to this folder in Git Bash.</p>
-<pre class="hljs"><code><div>    <span class="hljs-built_in">cd</span> /c/Git/Netlify-Notes
+<pre class="prettyprint"><code><div>    <span class="hljs-built_in">cd</span> /c/Git/Netlify-Notes
 </div></code></pre>
 <p>Where:</p>
 <ul>
@@ -431,20 +431,20 @@ init.defaultbranch=main</p>
 <p><strong>Note:</strong> Git Bash is case sensitive.</p>
 <h2 id="creating-a-git-repository">Creating a Git repository</h2>
 <p>Make sure you are in the correct folder. Run this command.</p>
-<pre class="hljs"><code><div>    ls
+<pre class="prettyprint"><code><div>    ls
 </div></code></pre>
 <p>This will give you a listing of your files and folders. In my case.</p>
 <p><img src="assets/images/folder-structure.jpg" alt="Website folder structure" title="Website folder structure"></p>
 <p>This has my html files and the notes I am creating. It also contains an <code>assets</code> folder that contains my CSS, JavaScript and images.</p>
 <p>We are now ready to initialise our folder as a Git repository.</p>
-<pre class="hljs"><code><div>    git init
+<pre class="prettyprint"><code><div>    git init
 </div></code></pre>
 <p>You will get a similar message.</p>
 <blockquote>
 <p>Initialized empty Git repository in C:/Git/Netlify-Notes/.git/</p>
 </blockquote>
 <p>We only have to run this command once and now we have a repository. If you run this command you will see that Git has added some files into your folder.</p>
-<pre class="hljs"><code><div>    ls -a
+<pre class="prettyprint"><code><div>    ls -a
 </div></code></pre>
 <p>Returns.</p>
 <p><img src="assets/images/git-folder.jpg" alt="Git folder" title="Git folder"></p>
@@ -452,18 +452,18 @@ init.defaultbranch=main</p>
 <p>There is a new folder named <code>.git</code> and this keeps a record of all the commits you do in your repository.</p>
 <h2 id="adding-files-to-your-repository">Adding files to your repository</h2>
 <p>At present we have initalised our repository but not committed any files to the repository. We can check our status with.</p>
-<pre class="hljs"><code><div>    git status
+<pre class="prettyprint"><code><div>    git status
 </div></code></pre>
 <p>In my case I see.</p>
 <p><img src="assets/images/git-status.jpg" alt="Git status" title="Git status"></p>
 <p>It is telling us that we have untracked files. This basically means these are all new files to Git.</p>
 <p>Now we have a couple of steps to commit our repository. First we have to add our files into the staging area.</p>
-<pre class="hljs"><code><div>    git add .
+<pre class="prettyprint"><code><div>    git add .
 </div></code></pre>
 <p>This saves <strong>all</strong> our files to the staging area. It keeps the files here until you commit them. I am deliberately simplifying the process here.</p>
 <p>The period (<code>.</code>) specifies all files.</p>
 <p>Run this command again.</p>
-<pre class="hljs"><code><div>    Git status
+<pre class="prettyprint"><code><div>    Git status
 </div></code></pre>
 <p><img src="assets/images/git-staged.jpg" alt="Git staged" title="Git staged"></p>
 <p>It shows that the files have been staged which is like a holding area. Notice that Git is giving you some information about where you are in the process.</p>
@@ -472,7 +472,7 @@ init.defaultbranch=main</p>
 </blockquote>
 <p>It is telling you that the files are staged and that, if you wanted to you could unstage them with a command. We won't do that.</p>
 <p>Now that they are staged they can be committed. Run this command.</p>
-<pre class="hljs"><code><div>    git commit -m <span class="hljs-string">"Initial commit."</span>
+<pre class="prettyprint"><code><div>    git commit -m <span class="hljs-string">"Initial commit."</span>
 </div></code></pre>
 <p><code>-m</code> means add a message about what you are doing. I usually try to keep my messages in present tense. E.g <em>Fix bug</em>, not <em>Fixed bug</em>.</p>
 <p>This will commit all files. In this process we have kept the first version of our software. Run <code>Git status</code> again to see the state of our repository.</p>
@@ -519,15 +519,15 @@ init.defaultbranch=main</p>
 <p><img src="assets/images/push-existing-repository.jpg" alt="Existing repository" title="Existing repository"></p>
 <p>These are the commands we will use to join our local repository to our Github account.</p>
 <p>First we set the remote origin by running this command.</p>
-<pre class="hljs"><code><div>    git remote add origin https://github.com/alanrob17/Netlify-notes.git
+<pre class="prettyprint"><code><div>    git remote add origin https://github.com/alanrob17/Netlify-notes.git
 </div></code></pre>
 <p>This doesn't return any messages.</p>
 <p><img src="assets/images/remote-origin.jpg" alt="Setting the remote origin" title="Setting the remote origin"></p>
 <p>Next we set the <code>Main</code> branch.</p>
-<pre class="hljs"><code><div>    git branch -M main
+<pre class="prettyprint"><code><div>    git branch -M main
 </div></code></pre>
 <p>Finally we push the local repository to Github.</p>
-<pre class="hljs"><code><div>    git push -u origin main
+<pre class="prettyprint"><code><div>    git push -u origin main
 </div></code></pre>
 <p>You will get a message similar to this.</p>
 <p><img src="assets/images/push-message.jpg" alt="Push your files to Github" title="Push your files to Github"></p>
@@ -548,7 +548,7 @@ init.defaultbranch=main</p>
 <li>Last we do a <code>Git commit</code> to commit our files to the repository. We give the commit a message to explain why we committed the files.</li>
 </ul>
 <p>Once we finish these steps we now have another step to push our changes to Github</p>
-<pre class="hljs"><code><div>    git push
+<pre class="prettyprint"><code><div>    git push
 </div></code></pre>
 <p>This <code>pushes</code> our changed files to Github.</p>
 <h2 id="whats-next">What's next</h2>
